@@ -1,0 +1,29 @@
+
+$_2E3749: #2E3749;
+$_EDF2F7: #EDF2F7;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 0 auto;
+  width: 980px;
+}
+
+.modalBtn {
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  background-color: $_EDF2F7;
+  color: $_2E3749;
+  text-align: center;
+  padding: 14px 30px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  display: block;
+  margin: 20px auto 0;
+}
