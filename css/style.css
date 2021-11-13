@@ -137,8 +137,8 @@
 }
 
 .modal-section .modal-overlay .modal-content.js-fadeIn {
-  -webkit-animation: scaleIn .3s ease-in 0s !important;
-          animation: scaleIn .3s ease-in 0s !important;
+  -webkit-animation: scaleIn .3s ease-in 0s;
+          animation: scaleIn .3s ease-in 0s;
 }
 
 @-webkit-keyframes scaleIn {

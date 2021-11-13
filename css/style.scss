@@ -130,7 +130,7 @@ $_FFF: #FFF;
 }
 
 .modal-section .modal-overlay .modal-content.js-fadeIn {
-  animation: scaleIn .3s ease-in 0s !important; 
+  animation: scaleIn .3s ease-in 0s; 
 }
 
 @keyframes scaleIn {

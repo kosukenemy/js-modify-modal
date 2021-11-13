@@ -22,7 +22,6 @@
   };
 
   const updateState = (params:Update) => {
-    console.log(params.modal);
     params.modalWrapper.classList.toggle(params.validClass, params.state);
     params.modal.classList.toggle(params.fadeInClass, params.state);
   }
