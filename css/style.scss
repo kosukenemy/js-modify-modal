@@ -3,6 +3,7 @@ $_2E3749: #2E3749;
 $_333: #333;
 $_EDF2F7: #EDF2F7;
 $_3281CE: #3281CE;
+$_c0c0c0: #c0c0c0;
 $_FFF: #FFF;
 
 * {
@@ -12,8 +13,10 @@ $_FFF: #FFF;
 
 .container {
   margin: 0 auto;
-  width: 980px;
+  width: 100%;
   position: relative;
+  overflow-x: hidden;
+  height: 100vh;
 
   .btn {
     outline: none;
@@ -51,8 +54,14 @@ $_FFF: #FFF;
 .crossBtn {
   background: transparent;
   position: absolute;
-  right: 30px;
+  right: 20px;
+  padding: 10px;
   outline: auto;
+
+  &:hover {
+    transition: all 0.1s ease-in;
+    background-color: $_c0c0c0;
+  }
   
   span {
     background-color: $_333;
@@ -62,8 +71,8 @@ $_FFF: #FFF;
     position: relative;
     border-radius: 10px;
     position: absolute;
-    top: 0px;
-    left: 1px;
+    top: 2px;
+    left: 9px;
 
     &:nth-child(1) {
       transform: rotate(45deg);
@@ -86,6 +95,14 @@ $_FFF: #FFF;
   width: 100vw;
   height: 100vh;
 }
+
+.modal-section.js-isInValid {
+  display: none;
+}
+.modal-section.js-isValid {
+  display: block;
+}
+
 
 .modal-section .modal-overlay {
   width: 100%;

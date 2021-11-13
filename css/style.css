@@ -5,8 +5,10 @@
 
 .container {
   margin: 0 auto;
-  width: 980px;
+  width: 100%;
   position: relative;
+  overflow-x: hidden;
+  height: 100vh;
 }
 
 .container .btn {
@@ -46,8 +48,15 @@
 .crossBtn {
   background: transparent;
   position: absolute;
-  right: 30px;
+  right: 20px;
+  padding: 10px;
   outline: auto;
+}
+
+.crossBtn:hover {
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+  background-color: #c0c0c0;
 }
 
 .crossBtn span {
@@ -58,8 +67,8 @@
   position: relative;
   border-radius: 10px;
   position: absolute;
-  top: 0px;
-  left: 1px;
+  top: 2px;
+  left: 9px;
 }
 
 .crossBtn span:nth-child(1) {
@@ -82,6 +91,14 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+}
+
+.modal-section.js-isInValid {
+  display: none;
+}
+
+.modal-section.js-isValid {
+  display: block;
 }
 
 .modal-section .modal-overlay {
