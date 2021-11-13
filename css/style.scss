@@ -1,6 +1,10 @@
 
 $_2E3749: #2E3749;
+$_333: #333;
 $_EDF2F7: #EDF2F7;
+$_3281CE: #3281CE;
+$_c0c0c0: #c0c0c0;
+$_FFF: #FFF;
 
 * {
   margin: 0;
@@ -9,14 +13,31 @@ $_EDF2F7: #EDF2F7;
 
 .container {
   margin: 0 auto;
-  width: 980px;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  height: 100vh;
+
+  .btn {
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    border: none;
+  }
+
+  .container-text {
+    padding-top: 100px;
+    font-size: 18px;
+    text-align: center;
+  }
+  .container-link {
+    color: $_3281CE;
+    text-align: center;
+    margin-right: 3px;
+  }
 }
 
-.modalBtn {
-  outline: none;
-  cursor: pointer;
-  appearance: none;
-  border: none;
+.openBtn {
   background-color: $_EDF2F7;
   color: $_2E3749;
   text-align: center;
@@ -26,4 +47,124 @@ $_EDF2F7: #EDF2F7;
   border-radius: 10px;
   display: block;
   margin: 20px auto 0;
+}
+
+.closeBtn {
+  background-color: $_3281CE;
+  color: $_FFF;
+  text-align: center;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 20px auto 0;
+  letter-spacing: 0.07em;
+}
+
+.crossBtn {
+  background: transparent;
+  position: absolute;
+  right: 20px;
+  padding: 10px;
+  outline: auto;
+
+  &:hover {
+    transition: all 0.1s ease-in;
+    background-color: $_EDF2F7;
+    border-radius: 2px;
+  }
+  
+  .border {
+    background-color: $_333;
+    width: 2px;
+    height: 15px;
+    display: block;
+    position: relative;
+    border-radius: 20px;
+    position: absolute;
+    top: 2px;
+    left: 9px;
+
+    &:nth-child(1) {
+      transform: rotate(45deg);
+
+    }
+    &:nth-child(2) {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+
+.modal-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+}
+
+.modal-section.js-isInValid {
+  display: block;
+  animation: openUp .1s ease-in 0s;
+}
+
+@keyframes openUp {
+  from{
+      opacity: 0;
+  }
+  to{
+      opacity: 1;
+  }
+}
+
+.modal-section .modal-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #000000, $alpha: 0.4);
+}
+
+.modal-section .modal-overlay .modal-content {
+  width: 100%;
+  max-width: 400px;
+  min-height: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $_FFF;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-section .modal-overlay .modal-content.js-fadeIn {
+  animation: scaleIn .3s ease-in 0s; 
+}
+
+@keyframes scaleIn {
+  from{
+      opacity: 0;
+      transform: translate(-50%, -50%)scale(0.9);
+  }
+  to{
+      opacity: 1;
+      transform: translate(-50%, -50%)scale(1);
+  }
+}
+
+
+.modal-container .modal-contentTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+}
+
+.modal-container .modal-contentText {
+  line-height: 1.5;
+  font-weight: 300;
+  overflow-y: scroll;
+  height: 40vh;
 }

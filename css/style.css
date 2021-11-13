@@ -5,16 +5,34 @@
 
 .container {
   margin: 0 auto;
-  width: 980px;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  height: 100vh;
 }
 
-.modalBtn {
+.container .btn {
   outline: none;
   cursor: pointer;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   border: none;
+}
+
+.container .container-text {
+  padding-top: 100px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.container .container-link {
+  color: #3281CE;
+  text-align: center;
+  margin-right: 3px;
+}
+
+.openBtn {
   background-color: #EDF2F7;
   color: #2E3749;
   text-align: center;
@@ -24,5 +42,153 @@
   border-radius: 10px;
   display: block;
   margin: 20px auto 0;
+}
+
+.closeBtn {
+  background-color: #3281CE;
+  color: #FFF;
+  text-align: center;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 20px auto 0;
+  letter-spacing: 0.07em;
+}
+
+.crossBtn {
+  background: transparent;
+  position: absolute;
+  right: 20px;
+  padding: 10px;
+  outline: auto;
+}
+
+.crossBtn:hover {
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+  background-color: #EDF2F7;
+  border-radius: 2px;
+}
+
+.crossBtn .border {
+  background-color: #333;
+  width: 2px;
+  height: 15px;
+  display: block;
+  position: relative;
+  border-radius: 20px;
+  position: absolute;
+  top: 2px;
+  left: 9px;
+}
+
+.crossBtn .border:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.crossBtn .border:nth-child(2) {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.modal-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+}
+
+.modal-section.js-isInValid {
+  display: block;
+  -webkit-animation: openUp .1s ease-in 0s;
+          animation: openUp .1s ease-in 0s;
+}
+
+@-webkit-keyframes openUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes openUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-section .modal-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal-section .modal-overlay .modal-content {
+  width: 100%;
+  max-width: 400px;
+  min-height: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #FFF;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.modal-section .modal-overlay .modal-content.js-fadeIn {
+  -webkit-animation: scaleIn .3s ease-in 0s;
+          animation: scaleIn .3s ease-in 0s;
+}
+
+@-webkit-keyframes scaleIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(0.9);
+            transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(0.9);
+            transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.modal-container .modal-contentTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+}
+
+.modal-container .modal-contentText {
+  line-height: 1.5;
+  font-weight: 300;
+  overflow-y: scroll;
+  height: 40vh;
 }
 /*# sourceMappingURL=style.css.map */
