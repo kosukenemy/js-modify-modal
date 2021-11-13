@@ -1,53 +1,50 @@
 
 (() => {
   const openBtn = document.querySelector('.openBtn') as HTMLButtonElement;
-  const closersBtn = document.querySelectorAll('.js-btn-close') as NodeList ;
+  const closesBtn = document.querySelectorAll('.js-btn-close') as NodeList ;
   const modalWrapper = document.querySelector('.modal-section') as HTMLElement;
   const modalContent = document.querySelector('.modal-content') as HTMLElement;
-
-  const ValidClass = {
-    isInValid : "js-isInValid",
-  }
-  const init = false;
-
+  const initState = false;
 
   interface Update {
-    element: HTMLElement,
-    validClass: string,
+    modalWrapper?: HTMLElement
+    modal?: HTMLElement
+    validClass?: string
+    fadeInClass?: string
     state: boolean
   }
-
-  const updateState = (params:Update) => {
-    params.element.classList.toggle(params.validClass, params.state);
-  }
-
-  const showModalProps = {   
-    element:modalWrapper,
-    validClass:ValidClass.isInValid,
-    state: init
-  }
-
-  const closeModalProps = {   
-    element:modalWrapper,
-    validClass:ValidClass.isInValid,
-    state: !init
-  }
-
-  modalContent.onclick = (event:MouseEvent):void => {
-    event.stopPropagation();
+  
+  const props = {
+    modalWrapper: modalWrapper,
+    modal: modalContent,
+    validClass: "js-isInValid",
+    fadeInClass: "js-fadeIn"
   };
 
-  openBtn.addEventListener('click', () => {
-    updateState(showModalProps);
+  const updateState = (params:Update) => {
+    console.log(params.modal);
+    params.modalWrapper.classList.toggle(params.validClass, params.state);
+    params.modal.classList.toggle(params.fadeInClass, params.state);
+  }
+
+  modalContent.addEventListener('click', (event:MouseEvent):void => event.stopPropagation());
+
+  openBtn.addEventListener('click', () => updateState({
+    modalWrapper: props.modalWrapper,
+    validClass: props.validClass,
+    modal: props.modal,
+    fadeInClass: props.fadeInClass,
+    state: !initState,
+  }));
+
+  closesBtn.forEach((closeBtn) => {
+    closeBtn.addEventListener('click', () => updateState({
+    modalWrapper: props.modalWrapper,
+    validClass: props.validClass,
+    modal: props.modal,
+    fadeInClass: props.fadeInClass,
+    state: initState,
+    }));
   });
-
-  closersBtn.forEach((closeBtn) => {
-    closeBtn.addEventListener('click', () => {
-      updateState(closeModalProps);
-    })
-  });
-
-
-
 })()
 
