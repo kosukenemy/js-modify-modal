@@ -1,3 +1,4 @@
+
 (() => {
   const openBtn = document.querySelector('.openBtn') as HTMLButtonElement;
   const closersBtn = document.querySelectorAll('.js-btn-close') as NodeList ;
@@ -16,7 +17,7 @@
     state: boolean
   }
 
-  const UpdateState = (params:Update) => {
+  const updateState = (params:Update) => {
     params.element.classList.toggle(params.validClass, params.state);
   }
 
@@ -37,12 +38,12 @@
   };
 
   openBtn.addEventListener('click', () => {
-    UpdateState(showModalProps);
+    updateState(showModalProps);
   });
 
   closersBtn.forEach((closeBtn) => {
     closeBtn.addEventListener('click', () => {
-      UpdateState(closeModalProps);
+      updateState(closeModalProps);
     })
   });
 
