@@ -1,6 +1,9 @@
 
 $_2E3749: #2E3749;
+$_333: #333;
 $_EDF2F7: #EDF2F7;
+$_3281CE: #3281CE;
+$_FFF: #FFF;
 
 * {
   margin: 0;
@@ -10,13 +13,17 @@ $_EDF2F7: #EDF2F7;
 .container {
   margin: 0 auto;
   width: 980px;
+  position: relative;
+
+  .btn {
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    border: none;
+  }
 }
 
-.modalBtn {
-  outline: none;
-  cursor: pointer;
-  appearance: none;
-  border: none;
+.openBtn {
   background-color: $_EDF2F7;
   color: $_2E3749;
   text-align: center;
@@ -24,6 +31,87 @@ $_EDF2F7: #EDF2F7;
   font-size: 14px;
   font-weight: 600;
   border-radius: 10px;
-  display: block;
+  display: inline-block;
   margin: 20px auto 0;
+}
+
+.closeBtn {
+  background-color: $_3281CE;
+  color: $_FFF;
+  text-align: center;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 20px auto 0;
+  letter-spacing: 0.07em;
+}
+
+.crossBtn {
+  background: transparent;
+  position: absolute;
+  right: 30px;
+  outline: auto;
+  
+  span {
+    background-color: $_333;
+    width: 2px;
+    height: 15px;
+    display: block;
+    position: relative;
+    border-radius: 10px;
+    position: absolute;
+    top: 0px;
+    left: 1px;
+
+    &:nth-child(1) {
+      transform: rotate(45deg);
+
+    }
+    &:nth-child(2) {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.modal-container {
+  padding: 5vw;
+}
+
+.modal-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal-section .modal-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #000000, $alpha: 0.5);
+}
+
+.modal-section .modal-overlay .modal-content {
+  width: 100%;
+  max-width: 40%;
+  min-height: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $_FFF;
+  border-radius: 10px;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.modal-container .modal-contentTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+}
+
+.modal-contentText {
+  line-height: 1.5;
+  font-weight: 300;
 }
