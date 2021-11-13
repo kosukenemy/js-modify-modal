@@ -16,34 +16,29 @@
   
   const props = {
     modalWrapper: modalWrapper,
-    modal: modalContent,
     validClass: "js-isInValid",
-    fadeInClass: "js-fadeIn"
+    modal: modalContent,
+    fadeInClass: "js-fadeIn",
+    state: initState
   };
 
-  const updateState = (params:Update) => {
+  const updateToggleClass = (params:Update) => {
     params.modalWrapper.classList.toggle(params.validClass, params.state);
     params.modal.classList.toggle(params.fadeInClass, params.state);
   }
 
   modalContent.addEventListener('click', (event:MouseEvent):void => event.stopPropagation());
 
-  openBtn.addEventListener('click', () => updateState({
-    modalWrapper: props.modalWrapper,
-    validClass: props.validClass,
-    modal: props.modal,
-    fadeInClass: props.fadeInClass,
-    state: !initState,
-  }));
+  openBtn.addEventListener('click', () => {
+    props.state = true;
+    updateToggleClass(props);
+  });
 
   closesBtn.forEach((closeBtn) => {
-    closeBtn.addEventListener('click', () => updateState({
-    modalWrapper: props.modalWrapper,
-    validClass: props.validClass,
-    modal: props.modal,
-    fadeInClass: props.fadeInClass,
-    state: initState,
-    }));
+    closeBtn.addEventListener('click', () => {
+      props.state = false;
+      updateToggleClass(props);
+    });
   });
 })()
 
