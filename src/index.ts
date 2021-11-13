@@ -1,6 +1,6 @@
 
 (() => {
-  const openButton = document.querySelector('.openButton') as HTMLButtonElement;
+  const openBtn = document.querySelector('.openBtn') as HTMLButtonElement;
   const closeButtons = document.querySelectorAll('.js-btn-close') as NodeList;
   const modalWrapper = document.querySelector('.modal-section') as HTMLElement;
   const modalContent = document.querySelector('.modal-content') as HTMLElement;
@@ -29,7 +29,7 @@
 
   modalContent.addEventListener('click', (event:MouseEvent):void => event.stopPropagation());
 
-  openButton.addEventListener('click', () => {
+  openBtn.addEventListener('click', () => {
     props.state = true;
     updateToggleClass(props);
   });
