@@ -25,7 +25,7 @@
   const updateToggleClass = (params:ModalProps) => {
     params.modalWrapper.classList.toggle(params.validClass, params.state);
     params.modal.classList.toggle(params.fadeInClass, params.state);
-  }
+  };
 
   modalContent.addEventListener('click', (event:MouseEvent):void => event.stopPropagation());
 

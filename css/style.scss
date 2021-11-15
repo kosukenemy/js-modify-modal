@@ -11,6 +11,16 @@ $_FFF: #FFF;
   padding: 0;
 }
 
+@mixin sp {
+  @media (max-width:768px) {
+    @content;
+  }
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 .container {
   margin: 0 auto;
   width: 100%;
@@ -138,6 +148,10 @@ $_FFF: #FFF;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  @include sp(){
+    width: 80%;
+    padding: 20px 14px;
+  }
 }
 
 .modal-section .modal-overlay .modal-content.js-fadeIn {

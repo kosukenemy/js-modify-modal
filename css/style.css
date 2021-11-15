@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 .container {
   margin: 0 auto;
   width: 100%;
@@ -146,6 +150,13 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+  .modal-section .modal-overlay .modal-content {
+    width: 80%;
+    padding: 20px 14px;
+  }
 }
 
 .modal-section .modal-overlay .modal-content.js-fadeIn {
